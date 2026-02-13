@@ -1,2 +1,2 @@
 #!/bin/sh
-kgx --tab
+gnome-terminal --tab
