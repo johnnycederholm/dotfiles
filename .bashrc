@@ -113,4 +113,4 @@ if ! shopt -oq posix; then
 fi
 
 # Initialize Oh my posh
-eval "$(oh-my-posh init bash)"
+eval "$(oh-my-posh init bash --config ~/.config/ohmyposh/theme.json)"
