@@ -1,0 +1,22 @@
+#!/bin/bash
+BASE="/com/gexperts/Tilix"
+
+dconf dump "$BASE/" |
+awk -v base="$BASE" '
+/^\[/ {
+    section=$0
+    gsub(/^\[|\]$/, "", section)
+    next
+}
+/=/ {
+    key=$1
+    sub(/=.*/, "", key)
+    value=substr($0, index($0, "=") + 1)
+
+    if (section == "")
+        path=sprintf("%s/%s", base, key)
+    else
+        path=sprintf("%s/%s/%s", base, section, key)
+
+    printf "- { name: %s, value: %s }\n", path, value
+}'
