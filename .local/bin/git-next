@@ -1,0 +1,5 @@
+#!/bin/bash
+branch=$(git branch --contains HEAD | grep -v HEAD | tail -1 | sed 's/^[ *]*//g')
+hash=$(git rev-parse $branch)
+next=$(git rev-list --topo-order HEAD..$hash | tail -1)
+git checkout $next

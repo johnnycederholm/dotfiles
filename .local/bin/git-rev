@@ -1,0 +1,2 @@
+#!/bin/bash
+git checkout $(git rev-list --max-parents=0 main)
