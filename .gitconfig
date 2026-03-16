@@ -3,3 +3,5 @@
 	email = johnny.k.cederholm@gmail.com
 [init]
 	defaultBranch = main
+[core]
+	editor = code --wait
